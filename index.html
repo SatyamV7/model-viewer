@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-US" id="html">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="apple-touch-icon" href="/public/static/assets/manifest//logo192.png" />
+    <meta name="description" content="3D Model Viewer in your right browser" />
+    <link rel="stylesheet" href="/src/style.css" />
+    <link rel="manifest" href="/manifest.json" />
+    <title>3D Viewer</title>
+</head>
+
+<body id="body">
+    <div id="root">
+        <div id="splash-screen">
+            <div class="loaderImg">
+                <img src="/public/static/assets/manifest/logo512.png" />
+            </div>
+            <span class="loader"></span>
+        </div>
+        <div id="main">
+            <header>
+                <center>
+                    <h1>3D Viewer</h1>
+                </center>
+            </header>
+            <section>
+                <div class="fileInput">
+                    <label class="file">
+                        <input type="file" onChange="readURL(this);" id="file" accept="model/gltf-binary"
+                            aria-label="File input" />
+                        <span class="file-custom"></span>
+                    </label>
+                </div>
+                <model-viewer id="model-viewer" alt="A 3D Model" src="#" ar ar-modes="webxr" shadow-intensity="1"
+                    camera-controls touch-action="pan-y" exposure="0.010"></model-viewer>
+            </section>
+            <footer>
+                <center>
+                    <hr />
+                    <h5>Made with ❤️ by <a target="_blank" href="https://github.com/SatyamV7/">Satyam Verma</a></h5>
+                </center>
+            </footer>
+        </div>
+        <script src="/src/script.js"></script>
+        <script type="module" src="/src/model-viewer.min.js"></script>
+        <script src="/src/jquery.min.js"></script>
+        <script>
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function () {
+                    navigator.serviceWorker.register('serviceworker.js').then(function (registration) {
+                        // Registration was successful
+                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                    }, function (err) {
+                        // registration failed :(
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+                });
+            }
+        </script>
+    </div>
+</body>
+
+</html>

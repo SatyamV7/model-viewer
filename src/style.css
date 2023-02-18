@@ -1,0 +1,241 @@
+@import url(/src/fonts.css);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI';
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+body {
+    padding: 15px;
+    background: #3b3b3b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+body::before,
+body::after {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+}
+
+div#root {
+    height: 100%;
+    width: 100%;
+    background: transparent;
+    margin: auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div#main {
+    height: 100%;
+    width: 100%;
+    background: transparent;
+    margin: auto;
+    position: relative;
+    display: none;
+}
+
+div#splash-screen {
+    display: block;
+}
+
+div.loaderImg {
+    margin-bottom: 100px;
+    height: 256px;
+    width: 256px;
+}
+
+div.loaderImg img {
+    height: 256px;
+    width: 256px;
+}
+
+span.loader {
+    display: block;
+    position: relative;
+    height: 5px;
+    width: 100%;
+    background: #ffffff50;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+span.loader:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0;
+    background: #FFFFFF;
+    border-radius: 10px;
+    animation: 3s prog ease-in infinite;
+}
+
+@keyframes prog {
+    to {
+        width: 100%;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 17px;
+    display: block;
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    display: block;
+    background: #3b3b3b50;
+    background-clip: padding-box;
+    border-width: 20px 7px 20px 7px;
+    border-style: solid;
+    border-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+header {
+    width: 100%;
+    height: auto;
+    margin: auto;
+}
+
+section {
+    width: 82.5%;
+    height: 82.5%;
+    display: flex;
+    aspect-ratio: 16 / 9;
+    margin: 10px auto;
+    justify-content: center;
+    align-items: center;
+}
+
+footer {
+    width: 100%;
+    height: auto;
+    margin: auto;
+}
+
+div.fileInput {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+model-viewer {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    display: none;
+}
+
+h1,
+h5 {
+    color: #363636;
+    font-weight: 600;
+    line-height: 1.125;
+    font-size: 2em;
+    text-rendering: optimizeLegibility;
+}
+
+h5 {
+    font-size: 14px;
+    font-weight: 500 !important;
+}
+
+hr {
+    background-color: #bfbfbf;
+    border: none;
+    display: block;
+    height: 2px;
+    margin: 2.5rem 5rem;
+}
+
+a {
+    color: #000000;
+}
+
+label.file {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    height: 2.5rem;
+}
+
+label.file input {
+    min-width: 14rem;
+    margin: 0;
+    filter: alpha(opacity=0);
+    opacity: 0;
+}
+
+span.file-custom {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 5;
+    height: 2.5rem;
+    padding: .5rem 1rem;
+    line-height: 1.5;
+    color: #555;
+    background-color: #fff;
+    border: .075rem solid #ddd;
+    border-radius: .25rem;
+    box-shadow: inset 0 .2rem .4rem rgba(0, 0, 0, .05);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+span.file-custom:after {
+    content: "Choose file...";
+}
+
+span.file-custom:before {
+    position: absolute;
+    top: -.075rem;
+    right: -.075rem;
+    bottom: -.075rem;
+    z-index: 6;
+    display: block;
+    content: "Browse";
+    padding: .5rem 1rem;
+    line-height: 1.5;
+    color: #555;
+    background-color: #eee;
+    border: .075rem solid #ddd;
+    border-radius: 0 .25rem .25rem 0;
+}
+
+label.file input:focus~span.file-custom {
+    box-shadow: 0 0 0 .075rem #fff, 0 0 0 .2rem #0074d9;
+}
