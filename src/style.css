@@ -19,7 +19,8 @@ html {
 
 body {
     padding: 15px;
-    background: #3b3b3b;
+    background: #f5f5f5;
+/*    background-image: radial-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%), radial-gradient(rgba(0, 0, 0, 0) 33%, rgba(0, 0, 0, 0.3) 166%);*/
     display: flex;
     justify-content: center;
     align-items: center;
@@ -76,7 +77,7 @@ span.loader {
     position: relative;
     height: 5px;
     width: 100%;
-    background: #ffffff50;
+    background: #00000050;
     border-radius: 10px;
     overflow: hidden;
 }
@@ -88,7 +89,7 @@ span.loader:after {
     top: 0;
     height: 100%;
     width: 0;
-    background: #FFFFFF;
+    background: #00000065;
     border-radius: 10px;
     animation: 3s prog ease-in infinite;
 }
@@ -125,11 +126,11 @@ header {
 }
 
 section {
-    width: 82.5%;
-    height: 82.5%;
+    width: 85.5%;
+    height: 85.5%;
     display: flex;
     aspect-ratio: 16 / 9;
-    margin: 10px auto;
+    margin: auto;
     justify-content: center;
     align-items: center;
 }
@@ -138,6 +139,8 @@ footer {
     width: 100%;
     height: auto;
     margin: auto;
+    bottom: 7.5px;
+    position: absolute;
 }
 
 div.fileInput {
@@ -175,7 +178,7 @@ hr {
     border: none;
     display: block;
     height: 2px;
-    margin: 2.5rem 5rem;
+    margin: 22.5px 5rem;
 }
 
 a {

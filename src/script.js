@@ -6,7 +6,6 @@ setTimeout(function () {
     _main.style.display = "block";
     _html.style.overflowX = "hidden";
     _html.style.overflowY = "overlay";
-    _body.style.background = "#f1f1f1";
     _splashScreen.style.display = "none";
 }, 3000);
 
@@ -22,7 +21,6 @@ function readURL(input) {
             $('div.fileInput')
                 .css('display', 'none');
         };
-
         reader.readAsDataURL(input.files[0]);
     }
 }
