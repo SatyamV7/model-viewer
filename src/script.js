@@ -1,14 +1,22 @@
+const _nav = document.querySelector('nav');
 const _html = document.querySelector('#html');
 const _body = document.querySelector('#body');
 const _main = document.querySelector('#main');
+const _header = document.querySelector('header');
+const _footer = document.querySelector('footer');
+const _section = document.querySelector('section');
+const _toggleFullScreen = document.querySelector('.toggleFullScreen');
+const _exitFullScreen = document.querySelector('.exitFullScreen');
 const _splashScreen = document.querySelector('#splash-screen');
-setTimeout(function () {
-    _main.style.display = "block";
-    _html.style.overflowX = "hidden";
-    _html.style.overflowY = "overlay";
-    _splashScreen.style.display = "none";
-}, 3000);
+const _modelViewer = document.querySelector('model-viewer');
+const _toggleBtn = _nav.querySelector('.toggle-btn');
 
+setTimeout(function () {
+    _main.style.display = 'block';
+    _html.style.overflowX = 'hidden';
+    _html.style.overflowY = 'overlay';
+    _splashScreen.style.display = 'none';
+}, 3000);
 
 function readURL(input) {
     if (input.files && input.files[0]) {
@@ -23,4 +31,47 @@ function readURL(input) {
         };
         reader.readAsDataURL(input.files[0]);
     }
+}
+
+_modelViewer.addEventListener('load', () => {
+    for (const material of _modelViewer.model.materials) {
+        material.occlusionTexture.setTexture(null);
+    }
+});
+
+
+_toggleBtn.addEventListener('click', () => {
+    _nav.classList.toggle('open');
+});
+
+function toggleFullScreen() {
+    document.documentElement.requestFullscreen()
+    _toggleFullScreen.style.display = 'none';
+    _exitFullScreen.style.display = 'flex';
+    _header.style.display = 'none';
+    _footer.style.display = 'none';
+    _section.style.height = '100%';
+    _section.style.width = '100%';
+    $('.toggleFullScreen')
+        .attr('style', '')
+    $('.exitFullScreen')
+        .attr('style', '--i:3;display:flex!important')
+}
+
+function exitFullScreen() {
+    document.exitFullscreen()
+    _toggleFullScreen.style.display = 'flex';
+    _exitFullScreen.style.display = 'none';
+    _header.style.display = 'block';
+    _footer.style.display = 'block';
+    _section.style.height = '85.5%';
+    _section.style.width = '85.5%';
+    $('.toggleFullScreen')
+        .attr('style', '--i:3;display:flex!important')
+    $('.exitFullScreen')
+        .attr('style', '')
+}
+
+function exitNavigation() {
+    _nav.classList.remove('open');
 }

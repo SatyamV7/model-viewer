@@ -6,7 +6,7 @@
     <link rel="icon" href="/favicon.ico" />
     <meta name="theme-color" content="#000000" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="apple-touch-icon" href="/public/static/assets/manifest//logo192.png" />
+    <link rel="apple-touch-icon" href="/public/static/assets/manifest/logo192.png" />
     <meta name="description" content="3D Model Viewer in your right browser" />
     <link rel="stylesheet" href="/src/style.css" />
     <link rel="manifest" href="/manifest.json" />
@@ -15,6 +15,7 @@
 
 <body id="body">
     <div id="root">
+        <titleBar></titleBar>
         <div id="splash-screen">
             <div class="loaderImg">
                 <img src="/public/static/assets/manifest/logo512.png" />
@@ -28,15 +29,60 @@
                 </center>
             </header>
             <section>
+                <nav>
+                    <div class="nav-content">
+                        <div class="toggle-btn">
+                            <div style="margin-top: 3px;">
+                                &#xe700;
+                            </div>
+                        </div>
+                        <span style=" --i:1;" style="margin-top: 4px 0 3px 0" onClick="exitNavigation()">
+                            <a href="#">
+                                <div>
+                                    &#xe713;
+                                </div>
+                            </a>
+                        </span>
+                        <span style="--i:2;" style="margin-top: 4px 0 3px 0" onClick="exitNavigation()">
+                            <a href="#">
+                                <div>
+                                    <label class="file">
+                                        <input type="file" onChange="readURL(this)" id="file"
+                                            accept="model/gltf, model/gltf-binary, .gltf, .glb"
+                                            aria-label="File input" />
+                                        <text class="file-custom-open">&#xe7c3;</text>
+                                    </label>
+                                </div>
+                            </a>
+                        </span>
+                        <span style="--i:3;" style="margin-top: 4px 0 3px 0;"
+                            onClick="toggleFullScreen();exitNavigation()" class="toggleFullScreen">
+                            <a href="#">
+                                <div>
+                                    &#xe740;
+                                </div>
+                            </a>
+                        </span>
+                        <span style="margin-top: 4px 0 3px 0;" onClick="exitFullScreen();exitNavigation()"
+                            class="exitFullScreen">
+                            <a href="#">
+                                <div>
+                                    &#xe73f;
+                                </div>
+                            </a>
+                        </span>
+                    </div>
+                </nav>
                 <div class="fileInput">
                     <label class="file">
-                        <input type="file" onChange="readURL(this);" id="file" accept="model/gltf-binary"
-                            aria-label="File input" />
+                        <input type="file" onChange="readURL(this)" id="file"
+                            accept="model/gltf, model/gltf-binary, .gltf, .glb" aria-label="File input" />
                         <span class="file-custom"></span>
                     </label>
                 </div>
-                <model-viewer id="model-viewer" alt="A 3D Model" src="#" ar ar-modes="webxr" shadow-intensity="1"
-                    camera-controls touch-action="pan-y" exposure="0.010"></model-viewer>
+                <model-viewer id="model-viewer" alt="A 3D Model" loading="eager" reveal="auto"
+                    poster="/public/static/assets/images/poster.jpg" autoplay ar ar-modes="webxr" shadow-intensity="1"
+                    camera-controls touch-action="pan-y" exposure="auto"></model-viewer>
             </section>
             <footer>
                 <center>
