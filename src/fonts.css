@@ -1,8 +1,18 @@
-/*Fonts*/
+/*
+Fonts
+*/
 @font-face {
     font-family: 'Segoe UI';
     font-weight: 400;
     font-display: swap;
     font-style: normal;
     src: url('/public/static/assets/fonts/Segoe UI/Segoe UI-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Segoe Fluent Icons';
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal;
+    src: url('/public/static/assets/fonts/Segoe Fluent Icons/SegoeIcons.ttf');
 }

@@ -45,11 +45,11 @@
                         </span>
                         <span style="--i:2;" style="margin-top: 4px 0 3px 0" onClick="exitNavigation()">
                             <a href="#">
-                                <div>
+                                <div id="fileInput">
                                     <label class="file">
-                                        <input type="file" onChange="readURL(this)" id="file"
-                                            accept="model/gltf, model/gltf-binary, .gltf, .glb"
-                                            aria-label="File input" />
+                                        <input type="file" id="file" accept="model/gltf, model/gltf-binary, .gltf, .glb"
+                                            aria-label="File input" onChange="toggleFullScreen();readURL(this)"
+                                            hidden="hidden" />
                                         <text class="file-custom-open">&#xe7c3;</text>
                                     </label>
                                 </div>
@@ -75,7 +75,7 @@
                 </nav>
                 <div class="fileInput">
                     <label class="file">
-                        <input type="file" onChange="readURL(this)" id="file"
+                        <input type="file" onChange="toggleFullScreen();readURL(this)" id="file"
                             accept="model/gltf, model/gltf-binary, .gltf, .glb" aria-label="File input" />
                         <span class="file-custom"></span>
                     </label>

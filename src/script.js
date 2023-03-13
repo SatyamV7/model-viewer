@@ -2,15 +2,18 @@ const _nav = document.querySelector('nav');
 const _html = document.querySelector('#html');
 const _body = document.querySelector('#body');
 const _main = document.querySelector('#main');
+const _file = document.querySelector('#file');
 const _header = document.querySelector('header');
 const _footer = document.querySelector('footer');
 const _section = document.querySelector('section');
+const _fileBtn = document.querySelector('.fileInput');
 const _toggleFullScreen = document.querySelector('.toggleFullScreen');
 const _exitFullScreen = document.querySelector('.exitFullScreen');
 const _splashScreen = document.querySelector('#splash-screen');
 const _modelViewer = document.querySelector('model-viewer');
 const _toggleBtn = _nav.querySelector('.toggle-btn');
 
+// Splash Screen
 setTimeout(function () {
     _main.style.display = 'block';
     _html.style.overflowX = 'hidden';
@@ -18,6 +21,7 @@ setTimeout(function () {
     _splashScreen.style.display = 'none';
 }, 3000);
 
+// File Input
 function readURL(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
@@ -33,13 +37,14 @@ function readURL(input) {
     }
 }
 
+// Model Viewer Customization
 _modelViewer.addEventListener('load', () => {
     for (const material of _modelViewer.model.materials) {
         material.occlusionTexture.setTexture(null);
     }
 });
 
-
+// Navigation
 _toggleBtn.addEventListener('click', () => {
     _nav.classList.toggle('open');
 });
@@ -75,3 +80,19 @@ function exitFullScreen() {
 function exitNavigation() {
     _nav.classList.remove('open');
 }
+
+_fileBtn.addEventListener("click", function () {
+    _file.click();
+});
+
+/*
+_file.addEventListener("change", function () {
+    if (_file.value) {
+        customTxt.innerHTML = _file.value.match(
+            /[\/\\]([\w\d\s\.\-\(\)]+)$/
+        )[1];
+    } else {
+        customTxt.innerHTML = "No file chosen, yet.";
+    }
+});
+*/
