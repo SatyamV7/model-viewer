@@ -1,4 +1,5 @@
 @import url(/src/fonts.css);
+@import url(/src/wtf-forms.css);
 
 * {
     margin: 0;
@@ -129,6 +130,37 @@ titleBar {
     -webkit-app-region: drag;
 }
 
+div#settings {
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: none;
+    background-color: #00000095;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    margin: auto;
+}
+
+div.seetingsComponent {
+    width: 1200px;
+    height: 800px;
+}
+
+div.seetingsComponent div.closeSettingsBtn {
+    text-align: right;
+    font-size: 40px;
+    position: relative;
+    top: 24px;
+    height: 0px;
+    line-height: 0;
+    right: 20px;
+}
+
+div.seetingsComponent div.closeSettingsBtn:hover {
+    color: #ff0000;
+}
+
 header {
     width: 100%;
     height: auto;
@@ -169,15 +201,15 @@ nav {
     z-index: 1;
 }
 
-nav .nav-content {
+nav .navigationButtons {
     display: flex;
     align-items: center;
     justify-content: center;
     transform: rotate(-45deg);
 }
 
-.nav-content .toggle-btn,
-.nav-content span a {
+.navigationButtons .navigationToggleButtons,
+.navigationButtons span a {
     transform: rotate(45deg);
     height: 40px;
     width: 40px;
@@ -189,7 +221,7 @@ nav .nav-content {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
-.nav-content .toggle-btn {
+.navigationButtons .navigationToggleButtons {
     color: #0e2431;
     z-index: 100;
     cursor: pointer;
@@ -200,7 +232,7 @@ nav .nav-content {
     line-height: 1px !important;
 }
 
-.nav-content span {
+.navigationButtons span {
     position: absolute;
     transition: all 0.6s ease;
     opacity: 0;
@@ -209,7 +241,7 @@ nav .nav-content {
     justify-content: center;
 }
 
-nav.open .nav-content span {
+nav.open .navigationButtons span {
     transform: rotate(calc(var(--i) * (360deg/8))) translateY(120px);
     opacity: 1;
     display: flex;
@@ -217,11 +249,11 @@ nav.open .nav-content span {
     justify-content: center;
 }
 
-.nav-content span a {
+.navigationButtons span a {
     text-decoration: none;
 }
 
-.nav-content span a div {
+.navigationButtons span a div {
     color: #0e2431;
     transform: rotate(calc(var(--i) * (360deg/ -8)));
     transition: 0.2s;
@@ -265,6 +297,86 @@ model-viewer {
     display: none;
 }
 
+/* Style the tab */
+div.tab {
+    float: left;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    width: 15%;
+    height: 100%;
+}
+
+/* Style the buttons that are used to open the tab content */
+div.tab button {
+    display: block;
+    background-color: inherit;
+    color: black;
+    padding: 22px 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: large;
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: center;
+}
+
+/* Change background color of buttons on hover */
+div.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current "tab button" class */
+div.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+div.tabcontent {
+    float: left;
+    padding: 0px 12px;
+    border: 1px solid #ccc;
+    width: 85%;
+    border-left: none;
+    height: 100%;
+    background: white;
+}
+
+div.seetingsComponent div.tabcontent div.about {
+    display: flex;
+    min-height: 40px;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-direction: row;
+}
+
+div.seetingsComponent div.tabcontent img.appLogo {
+    width: 150px;
+    height: 150px;
+}
+
+div.seetingsComponent div.tabcontent div.aboutContent {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    margin-inline-start: 30px;
+}
+
+div.seetingsComponent div.tabcontent span.appName {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 36px;
+}
+
+div.seetingsComponent div.tabcontent span.appVer {
+    display: flex;
+    padding-top: 4px;
+    flex-direction: row;
+    font-size: 24px;
+    line-height: 28px;
+    color: #9D9D9D;
+}
+
 h1,
 h5 {
     color: #363636;
@@ -289,69 +401,4 @@ hr {
 
 a {
     color: #000000;
-}
-
-/*
- * File
- */
-
-.file {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    height: 2.5rem;
-}
-
-.file input {
-    min-width: 14rem;
-    margin: 0;
-    filter: alpha(opacity=0);
-    opacity: 0;
-}
-
-.file-custom {
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: 5;
-    height: 2.5rem;
-    padding: .5rem 1rem;
-    line-height: 1.5;
-    color: #555;
-    background-color: #fff;
-    border: .075rem solid #ddd;
-    border-radius: .25rem;
-    box-shadow: inset 0 .2rem .4rem rgba(0, 0, 0, .05);
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-.file-custom:after {
-    content: "Choose file...";
-}
-
-.file-custom:before {
-    position: absolute;
-    top: -.075rem;
-    right: -.075rem;
-    bottom: -.075rem;
-    z-index: 6;
-    display: block;
-    content: "Browse";
-    /*height: 2.5rem;*/
-    height: auto;
-    padding: .5rem 1rem;
-    line-height: 1.5;
-    color: #555;
-    background-color: #eee;
-    border: .075rem solid #ddd;
-    border-radius: 0 .25rem .25rem 0;
-}
-
-/* Focus */
-.file input:focus~.file-custom {
-    box-shadow: 0 0 0 .075rem #fff, 0 0 0 .2rem #0074d9;
 }

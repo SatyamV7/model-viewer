@@ -23,6 +23,63 @@
             <span class="loader"></span>
         </div>
         <div id="main">
+            <div id="settings">
+                <div class="seetingsComponent">
+                    <div class="closeSettingsBtn" onClick="closeSettings()">×</div>
+                    <div class="tab">
+                        <button class="tablinks" onclick="openSettingsTab(event, 'Appearance')"
+                            id="defaultOpen">Appearance</button>
+                        <button class="tablinks" onclick="openSettingsTab(event, 'Language')">Language</button>
+                        <button class="tablinks" onclick="openSettingsTab(event, 'Exposure')">Exposure</button>
+                        <button class="tablinks" onclick="openSettingsTab(event, 'About')">About</button>
+                    </div>
+
+                    <div id="Appearance" class="tabcontent">
+                        <h2 style="margin-bottom: 20px;margin-top: 20px;">Customize appearance</h2>
+                        <div class="lightingModeToggle" style="margin-left: 15px;display: flex;gap: 10px;">
+                            <label class="control radio">
+                                <input type="radio" checked id="radio" name="radio">
+                                <span class="control-indicator"></span>
+                                Light Mode
+                            </label>
+                            <label class="control radio">
+                                <input type="radio" id="radio" name="radio">
+                                <span class="control-indicator"></span>
+                                Dark Mode
+                            </label>
+                        </div>
+                    </div>
+                    <div id="Language" class="tabcontent">
+                        <h2 style="margin-bottom: 20px;margin-top: 20px;">Change language</h2>
+                        <label class="select">
+                            <select style="margin-left: 15px;"></select>
+                        </label>
+                    </div>
+                    <div id="Exposure" class="tabcontent">
+                        <h2 style="margin-bottom: 20px;margin-top: 20px;">Exposure</h2>
+                        <input type="range" id="exposure" name="exposure" min="0" max="10" value="6" style="margin-left: 15px;width: 175px;" />
+                    </div>
+                    <div id="About" class="tabcontent">
+                        <h2 style="margin-bottom: 20px;margin-top: 20px;">About</h2>
+                        <div style="margin-left: 15px;">
+                            <div class="about"><img class="appLogo" src="/public/static/assets/manifest/logo192.png"
+                                    aria-hidden="true">
+                                <div class="aboutContent"><span class="appName">3D Viewer</span><span class="appVer"
+                                        id="aboutSection_channel_version_id">
+                                        Version 1.0.5
+                                        (Official build)</span></div>
+                            </div>
+                        </div>
+                        <div style="margin: 50px;font-size: 18px;width: 470px;">3D Model Viewer ⚡ powered by <a
+                                href="https://github.com/google/model-viewer">@google/model-viewer</a> & jQuery.This
+                            Open
+                            Source project is available ☞ <a href="https://github.com/SatyamV7/model-viewer">here</a>.
+                            <br /> Developed by <a href="https://github.com/SatyamV7/">@SatyamV7</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </section>
             <header>
                 <center>
                     <h1>3D Viewer</h1>
@@ -30,13 +87,13 @@
             </header>
             <section>
                 <nav>
-                    <div class="nav-content">
-                        <div class="toggle-btn">
+                    <div class="navigationButtons">
+                        <div class="navigationToggleButtons">
                             <div style="margin-top: 3px;">
                                 &#xe700;
                             </div>
                         </div>
-                        <span style=" --i:1;" style="margin-top: 4px 0 3px 0" onClick="exitNavigation()">
+                        <span style=" --i:1;" style="margin-top: 4px 0 3px 0" onClick="openSettings();exitNavigation()">
                             <a href="#">
                                 <div>
                                     &#xe713;
@@ -91,9 +148,9 @@
                 </center>
             </footer>
         </div>
-        <script src="/src/script.js"></script>
-        <script type="module" src="/src/model-viewer.min.js"></script>
         <script src="/src/jquery.min.js"></script>
+        <script type="module" src="/src/model-viewer.min.js"></script>
+        <script src="/src/script.js"></script>
         <script>
             if ('serviceWorker' in navigator) {
                 window.addEventListener('load', function () {
