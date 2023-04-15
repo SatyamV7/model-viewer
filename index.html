@@ -57,7 +57,7 @@
                     </div>
                     <div id="Exposure" class="tabcontent">
                         <h2 style="margin-bottom: 20px;margin-top: 20px;">Exposure</h2>
-                        <input type="range" id="exposure" name="exposure" min="0" max="10" value="6" style="margin-left: 15px;width: 175px;" />
+                        <input type="range" id="exposure" name="exposure" min="0" max="100" value="75" style="margin-left: 15px;width: 300px;" />
                     </div>
                     <div id="About" class="tabcontent">
                         <h2 style="margin-bottom: 20px;margin-top: 20px;">About</h2>
@@ -94,14 +94,14 @@
                             </div>
                         </div>
                         <span style=" --i:1;" style="margin-top: 4px 0 3px 0" onClick="openSettings();exitNavigation()">
-                            <a href="#">
+                            <span>
                                 <div>
                                     &#xe713;
                                 </div>
-                            </a>
+                            </span>
                         </span>
                         <span style="--i:2;" style="margin-top: 4px 0 3px 0" onClick="exitNavigation()">
-                            <a href="#">
+                            <span>
                                 <div id="fileInput">
                                     <label class="file">
                                         <input type="file" id="file" accept="model/gltf, model/gltf-binary, .gltf, .glb"
@@ -110,23 +110,23 @@
                                         <text class="file-custom-open">&#xe7c3;</text>
                                     </label>
                                 </div>
-                            </a>
+                            </span>
                         </span>
                         <span style="--i:3;" style="margin-top: 4px 0 3px 0;"
                             onClick="toggleFullScreen();exitNavigation()" class="toggleFullScreen">
-                            <a href="#">
+                            <span>
                                 <div>
                                     &#xe740;
                                 </div>
-                            </a>
+                            </span>
                         </span>
                         <span style="margin-top: 4px 0 3px 0;" onClick="exitFullScreen();exitNavigation()"
                             class="exitFullScreen">
-                            <a href="#">
+                            <span>
                                 <div>
                                     &#xe73f;
                                 </div>
-                            </a>
+                            </span>
                         </span>
                     </div>
                 </nav>

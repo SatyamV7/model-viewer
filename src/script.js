@@ -6,18 +6,18 @@ const _main = document.querySelector('#main');
 const _file = document.querySelector('#file');
 const _header = document.querySelector('header');
 const _footer = document.querySelector('footer');
+const _foooterLine = document.querySelector('hr');
 const _section = document.querySelector('section');
 const selectTag = document.querySelector('select');
 const _fileBtn = document.querySelector('#fileInput');
 const _exposureRange = document.querySelector('#exposure');
 const _fileCustom = document.querySelector('.file-custom');
+const _navigationToggleButtons = document.querySelector('.navigationToggleButtons');
 const _toggleFullScreen = document.querySelector('.toggleFullScreen');
 const _toggleBtn = document.querySelector('.navigationToggleButtons');
 const _exitFullScreen = document.querySelector('.exitFullScreen');
 const _splashScreen = document.querySelector('#splash-screen');
 const _modelViewer = document.querySelector('model-viewer');
-var _exposureValue = $('input#exposure').val();
-var _exposureRealValue = _exposureValue / 10;
 
 // Splash Screen
 setTimeout(function () {
@@ -85,6 +85,8 @@ function exitFullScreen() {
         .attr('style', '')
 }
 function ExposureValSet() {
+    var _exposureValue = $('input#exposure').val();
+    var _exposureRealValue = _exposureValue / 100;
     $('model-viewer')
         .attr('exposure', _exposureRealValue)
     setTimeout(ExposureValSet, 1);
@@ -101,13 +103,17 @@ _fileBtn.addEventListener('click', function () {
 });
 
 function openSettings() {
-    _body.style.padding = '0px';
-    document.querySelector('#settings').style.display = 'flex'
+    _body.style.background = '#666666';
+    document.querySelector('#settings').style.display = 'flex';
+    _navigationToggleButtons.style.background = '#707070';
+    _foooterLine.style.background = '#5a5a5a';
 }
 
 function closeSettings() {
-    _body.style.padding = '15px';
-    document.querySelector('#settings').style.display = 'none'
+    _body.style.background = '#f5f5f5';
+    document.querySelector('#settings').style.display = 'none';
+    _navigationToggleButtons.style.background = '#ffffff';
+    _foooterLine.style.background = '#bfbfbf';
 }
 
 function openSettingsTab(evt, settingsPanel) {
