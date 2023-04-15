@@ -441,21 +441,8 @@ input[type=range]::-ms-track {
     cursor: pointer;
     background: transparent;
     border-color: transparent;
+    border-radius: 10px;
     color: transparent;
-}
-
-input[type=range]::-ms-fill-lower {
-    background: #888;
-    border: 0px solid #000000;
-    border-radius: 2px;
-    box-shadow: 0px 0px 0px #000000;
-}
-
-input[type=range]::-ms-fill-upper {
-    background: #888;
-    border: 0px solid #000000;
-    border-radius: 2px;
-    box-shadow: 0px 0px 0px #000000;
 }
 
 input[type=range]::-ms-thumb {
@@ -468,15 +455,6 @@ input[type=range]::-ms-thumb {
     background: #888;
     cursor: pointer;
 }
-
-input[type=range]:focus::-ms-fill-lower {
-    background: #888;
-}
-
-input[type=range]:focus::-ms-fill-upper {
-    background: #888;
-}
-
 
 h1,
 h5 {
