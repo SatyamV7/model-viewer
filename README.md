@@ -4,7 +4,7 @@
 
 👾 3D Model Viewer ⚡ powered by <a href="https://github.com/google/model-viewer">@google/model-viewer<a> & jQuery.
 
-🔗 Demo Link: <a href="3d-model-viewer.netlify.app/">3d-model-viewer.netlify.app/</a>
+🔗 Demo Link: <a href="https://3d-model-viewer.netlify.app/">3d-model-viewer.netlify.app/</a>
 
 # Stack
 
